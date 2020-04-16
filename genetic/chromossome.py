@@ -2,7 +2,7 @@ import random
 
 from bitset import BitSet
 
-class Chromossome():
+class Chromossome:
     def __init__(self, x = -1, y = -1):
 
         if x < 0 or x > 15:
