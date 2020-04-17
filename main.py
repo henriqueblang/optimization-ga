@@ -15,7 +15,7 @@ if __name__ == "__main__":
     population.append(Chromossome(14, 3))
 
     generation = 0
-    population_score = problem.f_average(population)
+    population_score = problem.g_average(population)
     print(f"Generation # {generation} -> Average population score = {population_score:.3f}\n")
 
     generation_plot = []
@@ -32,7 +32,7 @@ if __name__ == "__main__":
         genetic.operators.elitism(population)
 
         generation += 1
-        population_score = problem.f_average(population)
+        population_score = problem.g_average(population)
 
         generation_plot.append(generation)
         population_score_plot.append(population_score)
