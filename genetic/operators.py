@@ -20,7 +20,7 @@ def selection(population):
     return parent1, parent2
 
 def crossover(population, parent1, parent2):
-    crossover_point = random.randint(1, 6)
+    crossover_point = random.randint(1, 7)
     print(f"Crossover will happen at point {crossover_point}")
 
     parent1_genes = parent1.get_genes()
