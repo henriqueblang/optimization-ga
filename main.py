@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 
-import genetic.operators
-import problem
-import genetic.utils
-from genetic.chromossome import Chromossome
+import modules.problem as problem
+from modules.genetics import operators
+from modules.genetics import utils
+from modules.genetics.chromossome import Chromossome
 
 if __name__ == "__main__":
     population = []
@@ -25,11 +25,11 @@ if __name__ == "__main__":
     population_score_plot.append(population_score)
 
     while generation < 50:
-        parent1, parent2 = genetic.operators.selection(population)
+        parent1, parent2 = operators.selection(population)
 
-        genetic.operators.crossover(population, parent1, parent2)
-        genetic.operators.mutation(population)
-        genetic.operators.elitism(population)
+        operators.crossover(population, parent1, parent2)
+        operators.mutation(population)
+        operators.elitism(population)
 
         generation += 1
         population_score = problem.g_average(population)
@@ -39,8 +39,8 @@ if __name__ == "__main__":
 
         print(f"Generation # {generation} -> Average population score = {population_score:.3f}\n")
 
-    best_chromossome = genetic.utils.find_best_chromossome(population)
-    print(f"Best individual: {genetic.utils.format_chromossome(best_chromossome)}")
+    best_chromossome = utils.find_best_chromossome(population)
+    print(f"Best individual: {utils.format_chromossome(best_chromossome)}")
 
     plt.plot(generation_plot, population_score_plot)
     plt.show()

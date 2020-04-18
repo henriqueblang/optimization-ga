@@ -1,6 +1,6 @@
 import math
 
-from genetic.chromossome import Chromossome
+from modules.genetics.chromossome import Chromossome
 
 def f(x, y):
     return abs(x * y * math.sin(math.pi * y / 4.0))

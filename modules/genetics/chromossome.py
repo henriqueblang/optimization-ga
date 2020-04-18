@@ -1,6 +1,6 @@
 import random
 
-from bitset import BitSet
+from modules.bitset import BitSet
 
 class Chromossome:
     def __init__(self, x = -1, y = -1):

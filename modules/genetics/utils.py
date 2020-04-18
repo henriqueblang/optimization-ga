@@ -1,4 +1,4 @@
-import problem
+import modules.problem as problem
 
 def find_best_chromossome(population):
     best_chromossome = None

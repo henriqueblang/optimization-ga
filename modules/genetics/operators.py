@@ -2,9 +2,9 @@ MUTATION_PROBABILITY = 0.05
 
 import random
 
-import genetic.utils
-from bitset import BitSet
-from genetic.chromossome import Chromossome
+import modules.genetics.utils as utils
+from modules.bitset import BitSet
+from modules.genetics.chromossome import Chromossome
 
 def selection(population):
     parent1 = random.choice(population)
@@ -14,8 +14,8 @@ def selection(population):
         parent1 = random.choice(population)
         parent2 = random.choice(population)
 
-    print(f"1st parent chosen for crossover: {genetic.utils.format_chromossome(parent1)}")
-    print(f"2nd parent chosen for crossover: {genetic.utils.format_chromossome(parent2)}")
+    print(f"1st parent chosen for crossover: {utils.format_chromossome(parent1)}")
+    print(f"2nd parent chosen for crossover: {utils.format_chromossome(parent2)}")
 
     return parent1, parent2
 
@@ -39,11 +39,11 @@ def crossover(population, parent1, parent2):
 
     child1 = Chromossome()
     child1.set_genes(child1_genes)
-    print(f"1st child generated from crossover: {genetic.utils.format_chromossome(child1)}")
+    print(f"1st child generated from crossover: {utils.format_chromossome(child1)}")
 
     child2 = Chromossome()
     child2.set_genes(child2_genes)
-    print(f"2nd child generated from crossover: {genetic.utils.format_chromossome(child2)}")
+    print(f"2nd child generated from crossover: {utils.format_chromossome(child2)}")
 
     population.append(child1)
     population.append(child2)
@@ -66,6 +66,6 @@ def mutation(population):
 
 def elitism(population):
     for _ in range(2):
-        worst_individual = genetic.utils.find_worst_chromossome(population)
-        print(f"Removing worst individual from population: {genetic.utils.format_chromossome(worst_individual)}")
+        worst_individual = utils.find_worst_chromossome(population)
+        print(f"Removing worst individual from population: {utils.format_chromossome(worst_individual)}")
         population.remove(worst_individual)
