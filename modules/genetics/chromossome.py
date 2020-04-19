@@ -3,12 +3,12 @@ import random
 from modules.bitset import BitSet
 
 class Chromossome:
-    def __init__(self, x = -1, y = -1):
+    def __init__(self, x = None, y = None):
 
-        if x < 0 or x > 15:
+        if x is None or x < 0 or x > 15:
             x = random.randint(0, 15)
 
-        if y < 0 or y > 15:
+        if y is None or y < 0 or y > 15:
             y = random.randint(0, 15)
 
         self.__genes = Chromossome.get_genotype(x, y)
